@@ -429,7 +429,7 @@ public void helper(int aux){
 	panel_5.add(textArea_9); 
 	repaint();
 	
-	//worker.addVariable(new Variavel(spinner_7, spinner_8, spinner_9));
+	// worker.addVariable(new Variavel(spinner_7, spinner_8, spinner_9));
 }
 	
 }
