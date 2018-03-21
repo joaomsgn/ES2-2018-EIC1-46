@@ -21,6 +21,8 @@ import javax.mail.internet.MimeMultipart;
 public class Mail extends Thread{
 	private String fileName;
 	private String host;
+	private static String user;
+	private static String password;
 
 	private Properties properties;
 
@@ -31,7 +33,7 @@ public class Mail extends Thread{
 	private Authenticator authenticator;
 	private boolean send = false;
 
-	String from, to, subject, messageBody;
+	String  to, subject, messageBody;
 
 	public Mail() {
 		fileName = "quiz";
@@ -77,15 +79,24 @@ public class Mail extends Thread{
 	}
 	
 	void performTask() {
-		sendMail(from, to, subject, messageBody);
-		sendMail(to, from, subject, messageBody);
+		sendMail(user, to, subject, messageBody);
+		user = "es2.2018.eic1.46@gmail.com";
+		password = "ESIIAdmin";
+		sendMail(to, user, subject, messageBody);
 	}
 
-	public void setValues(String from, String to, String subject, String messageBody) {
-		this.from=from;
+	public void setValues(String from, String to, String subject, String messageBody, String mail, String pass) {
 		this.to=to;
 		this.subject=subject;
 		this.messageBody=messageBody;
+		if(mail.contains("@") && (mail.contains(".com") || mail.contains(".pt"))){
+			user = mail;
+			password=pass;
+		}
+		else{
+			user = "es2.2018.eic1.46@gmail.com";
+			password = "ESIIAdmin";
+		}
 	}
 
 	/**
@@ -93,10 +104,10 @@ public class Mail extends Thread{
 	 * server requires it.
 	 */
 
-	class SMTPAuthenticator extends Authenticator {
+	static class SMTPAuthenticator extends Authenticator {
 
-		private static final String SMTP_AUTH_USER = "es2.2018.eic1.46@gmail.com";
-		private static final String SMTP_AUTH_PASSWORD = "ESIIAdmin";
+		private static final String SMTP_AUTH_USER = user;
+		private static final String SMTP_AUTH_PASSWORD = password;
 
 		public PasswordAuthentication getPasswordAuthentication() {
 			String username = SMTP_AUTH_USER;

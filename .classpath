@@ -2,7 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/Mariana Oom/Downloads/javax.mail-api-1.4.7.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/javax.mail.jar"/>
+>>>>>>> branch 'master' of https://github.com/joaomsgn/ES2-2018-EIC1-46.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>
