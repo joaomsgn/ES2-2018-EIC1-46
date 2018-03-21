@@ -33,7 +33,7 @@ public class Mail extends Thread{
 	private Authenticator authenticator;
 	private boolean send = false;
 
-	String  to, subject, messageBody;
+	String  from, to, subject, messageBody;
 
 	public Mail(String mail, String pass) {
 		fileName = "quiz";
@@ -92,7 +92,8 @@ public class Mail extends Thread{
 		sendMail(to, user, subject, messageBody);
 	}
 
-	public void setValues(String from, String to, String subject, String messageBody) {
+	public void setValues(/*String from, */String to, String subject, String messageBody) {
+		//this.from = from;
 		this.to=to;
 		this.subject=subject;
 		this.messageBody=messageBody;
@@ -106,10 +107,10 @@ public class Mail extends Thread{
 
 	static class SMTPAuthenticator extends Authenticator {
 
-		private static final String SMTP_AUTH_USER = user;
-		private static final String SMTP_AUTH_PASSWORD = password;
+		private static final String SMTP_AUTH_USER = user/*"es2.2018.eic1.46@gmail.com"*/;
+		private static final String SMTP_AUTH_PASSWORD = password/*"ESIIAdmin"*/;
 
-		public PasswordAuthentication getPasswordAuthentication() {
+		public PasswordAuthentication getPasswordAuthentication(/*String u, String p*/) {
 			String username = SMTP_AUTH_USER;
 			String password = SMTP_AUTH_PASSWORD;
 

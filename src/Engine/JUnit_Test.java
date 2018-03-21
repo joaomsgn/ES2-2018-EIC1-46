@@ -18,18 +18,18 @@ public class JUnit_Test {
 	
 	@Test
 	public void testMail() {
-		Mail mail = new Mail();
+		Mail mail = new Mail("es2.2018.eic1.46@gmail.com", "ESIIAdmin");
 	}
 
 	@Test
 	public void testSetValues() {
-		new Mail().setValues("isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "Constantine77");
+		new Mail("es2.2018.eic1.46@gmail.com", "ESIIAdmin").setValues(/*"isctee@gmail.com",*/ "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com");
 	}
 	
 	@Test
 	public void testPerformTask() {
-		Mail m = new Mail();
-		m.setValues("isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "Constantine77");
+		Mail m = new Mail("es2.2018.eic1.46@gmail.com", "ESIIAdmin");
+		m.setValues(/*"isctee@gmail.com",*/ "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com");
 		m.performTask();
 	}
 
