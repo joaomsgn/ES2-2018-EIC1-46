@@ -107,12 +107,10 @@ public class LogIn {
 
 		icon = new JLabel("");
 		icon.setBounds(197, 104, 170, 170);
-//		Image img = new ImageIcon(this.getClass().getResource("iscte2.png")).getImage();
-//
-//		Image img2 = img.getScaledInstance(icon.getWidth(), icon.getHeight(), Image.SCALE_SMOOTH);
-//		icon.setIcon(new ImageIcon(img2));
-//
-//		frame.getContentPane().add(icon);
+		String img = ("images\\iscte2.png");
+		icon.setIcon(new ImageIcon(img));
+
+		frame.getContentPane().add(icon);
 
 		}
 

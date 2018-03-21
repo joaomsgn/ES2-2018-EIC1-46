@@ -460,12 +460,3 @@ public void helper(int aux){
 	 }
 }
 
-
-
-
-
-//    for matches1 as curs1 Cursor for select idLog as a1, dataLog as a2,tipoAccao as a3,idUtilizadorBD as a4,informacao as a5
-//    ,emailUtilizador_pkTUtilizador as a6,senhaUtilizador as a7,nomeUtilizador as a8,numeroCliente_pkTCliente as a9 
-//    ,morada as a10,contribuinte as a11 from LogUtilizadores where idLog > @ultimoMigrado order by idLog ASC DO 
-//    call SP_InsertLogUtilizador(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,@numeroMigração);
-//
