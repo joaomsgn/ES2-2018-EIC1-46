@@ -27,8 +27,9 @@ public class Worker {
 	}
 	
 	public void sendMail(String from, String to, String subject, String body){
-		mail_sender = new Mail();
-		mail_sender.setValues(from, to, subject, body, user.getMail(),user.getPassword());
+		mail_sender = new Mail(user.getMail(),user.getPassword());
+		System.out.println(user.getMail() +" - " +user.getPassword());
+		mail_sender.setValues(from, to, subject, body);
 		mail_sender.start();
 	}
 	

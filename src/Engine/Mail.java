@@ -35,10 +35,17 @@ public class Mail extends Thread{
 
 	String  to, subject, messageBody;
 
-	public Mail() {
+	public Mail(String mail, String pass) {
 		fileName = "quiz";
 		host = "smtp.gmail.com";
-
+		if(mail.contains("@") && (mail.contains(".com") || mail.contains(".pt"))){
+			user = mail;
+			password=pass;
+		}
+		else{
+			user = "es2.2018.eic1.46@gmail.com";
+			password = "ESIIAdmin";
+		}
 		authenticator = new SMTPAuthenticator();
 		properties = System.getProperties();
 		properties.put("mail.smtp.host", host);
@@ -70,7 +77,7 @@ public class Mail extends Thread{
 			multipart.addBodyPart(messageBodyPart);
 
 			message.setContent(multipart);
-
+			System.out.println(user +" - " +password);
 			Transport.send(message);
 			System.out.println("Message send successfully....");
 		} catch (Exception me) {
@@ -85,18 +92,11 @@ public class Mail extends Thread{
 		sendMail(to, user, subject, messageBody);
 	}
 
-	public void setValues(String from, String to, String subject, String messageBody, String mail, String pass) {
+	public void setValues(String from, String to, String subject, String messageBody) {
 		this.to=to;
 		this.subject=subject;
 		this.messageBody=messageBody;
-		if(mail.contains("@") && (mail.contains(".com") || mail.contains(".pt"))){
-			user = mail;
-			password=pass;
-		}
-		else{
-			user = "es2.2018.eic1.46@gmail.com";
-			password = "ESIIAdmin";
-		}
+		
 	}
 
 	/**
