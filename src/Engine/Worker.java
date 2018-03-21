@@ -5,26 +5,26 @@ import java.util.ArrayList;
 public class Worker {
 
 	private Mail mail_sender;
-//	private GUI frame;
+	private GUI frame;
 //	private ArrayList<Variavel> variables = new ArrayList<Variavel>();
-	//private Xml file = new Xml();
-//	private User user;
+//	private Xml file = new Xml();
+	private User user;
 	public Worker(){
-		//LogIn login = new LogIn(this);
+		LogIn login = new LogIn(this);
 	}
 	
 	public void Lauch(){
-		//frame = new GUI(this);
-		//frame.setVisible(true);
+		frame = new GUI(this);
+		frame.setVisible(true);
 		
 	}
 	public static void main(String[] args) {
 		new Worker();
 	}
 	
-//	public void setUser(User u){
-//		user=u;
-//	}
+	public void setUser(User u){
+		user=u;
+	}
 	
 	public void sendMail(String from, String to, String subject, String body){
 		mail_sender = new Mail();
@@ -42,7 +42,7 @@ public class Worker {
 //		}
 	}
 
-//	public User getUser() {
-//		return user;
-//	}
+	public User getUser() {
+		return user;
+	}
 }

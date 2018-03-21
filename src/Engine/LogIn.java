@@ -24,7 +24,7 @@ public class LogIn {
 	private JPasswordField passwordField;
 	private JTextArea textArea;
 	private JLabel icon;
-	//private ArrayList<User> users = new ArrayList<User>();
+	private ArrayList<User> users = new ArrayList<User>();
 	private Worker worker;
 
 	/**
@@ -81,39 +81,39 @@ public class LogIn {
 		frame.getContentPane().add(textArea);
 
 		JButton btnNewButton = new JButton("Login");
-	//	btnNewButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				for (User user : users) {
-//					System.out.println(user.getMail() +" - " +user.getPassword());
-//					System.out.println(user.getMail().equals(textArea.getText()));
-//					System.out.println(user.getPassword()+" - " +passwordField.getText());
-//					if (user.getMail().equals(textArea.getText())
-//							&& user.getPassword().equals(passwordField.getText())) {
-//						frame.setVisible(false);
-//						worker.setUser(user);
-//						worker.Lauch();
-//					}
-//					else{frame.repaint();
-//						textArea.setBackground(Color.RED);
-//						passwordField.setBackground(Color.RED);
-//						frame.repaint();
-//					}
-//				}
-//			}
-//		});
-//		btnNewButton.setFont(new Font("Berlin Sans FB", Font.PLAIN, 16));
-//		btnNewButton.setBounds(12, 164, 126, 43);
-//		frame.getContentPane().add(btnNewButton);
-//
-//		icon = new JLabel("");
-//		icon.setBounds(197, 104, 170, 170);
-//		Image img = new ImageIcon(this.getClass().getResource("iscte2.png")).getImage();
-//
-//		Image img2 = img.getScaledInstance(icon.getWidth(), icon.getHeight(), Image.SCALE_SMOOTH);
-//		icon.setIcon(new ImageIcon(img2));
-//
-//		frame.getContentPane().add(icon);
-//
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for (User user : users) {
+					System.out.println(user.getMail() +" - " +user.getPassword());
+					System.out.println(user.getMail().equals(textArea.getText()));
+					System.out.println(user.getPassword()+" - " +passwordField.getText());
+					if (user.getMail().equals(textArea.getText())
+							&& user.getPassword().equals(passwordField.getText())) {
+						frame.setVisible(false);
+						worker.setUser(user);
+						worker.Lauch();
+					}
+					else{frame.repaint();
+						textArea.setBackground(Color.RED);
+						passwordField.setBackground(Color.RED);
+						frame.repaint();
+					}
+				}
+			}
+		});
+		btnNewButton.setFont(new Font("Berlin Sans FB", Font.PLAIN, 16));
+		btnNewButton.setBounds(12, 164, 126, 43);
+		frame.getContentPane().add(btnNewButton);
+
+		icon = new JLabel("");
+		icon.setBounds(197, 104, 170, 170);
+		Image img = new ImageIcon(this.getClass().getResource("iscte2.png")).getImage();
+
+		Image img2 = img.getScaledInstance(icon.getWidth(), icon.getHeight(), Image.SCALE_SMOOTH);
+		icon.setIcon(new ImageIcon(img2));
+
+		frame.getContentPane().add(icon);
+
 		}
 
 	private void read_BD() {
