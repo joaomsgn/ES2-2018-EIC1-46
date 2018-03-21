@@ -6,8 +6,8 @@ public class Worker {
 
 	private Mail mail_sender;
 	private GUI frame;
-//	private ArrayList<Variavel> variables = new ArrayList<Variavel>();
-//	private Xml file = new Xml();
+	private ArrayList<Variavel> variables = new ArrayList<Variavel>();
+	private Xml file = new Xml();
 	private User user;
 	public Worker(){
 		LogIn login = new LogIn(this);
@@ -32,14 +32,14 @@ public class Worker {
 		mail_sender.start();
 	}
 	
-//	public void addVariable(Variavel v){
-//		variables.add(v);
-//	}
+	public void addVariable(Variavel v){
+		variables.add(v);
+}
 	
 	public void saveProblem(){
-//		file.initiate(frame.getEmail(), frame.getProblem(), frame.getDescription(), frame.getDate());
-//		for(Variavel var: variables){
-//		}
+		file.initiate(frame.getEmail(), frame.getProblem(), frame.getDescription(), frame.getDate());
+		for(Variavel var: variables){
+		}
 	}
 
 	public User getUser() {

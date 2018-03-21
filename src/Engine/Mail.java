@@ -114,7 +114,7 @@ public class Mail extends Thread{
 	public void run() {
 		performTask();
 		try {
-//			this.finalize();
+			this.finalize();
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

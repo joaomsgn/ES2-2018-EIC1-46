@@ -115,7 +115,7 @@ public class GUI extends JFrame {
 		
 		textArea_1 = new JTextArea();
 		textArea_1.setBounds(65, 377, 275, 16);
-//		textArea_1.setText(worker.getUser().getMail());
+		textArea_1.setText(worker.getUser().getMail());
 		panel_2.add(textArea_1);
 		
 		
@@ -429,7 +429,7 @@ public void helper(int aux){
 	panel_5.add(textArea_9); 
 	repaint();
 	
-	// worker.addVariable(new Variavel(spinner_7, spinner_8, spinner_9));
+	 worker.addVariable(new Variavel(spinner_7, spinner_8, spinner_9));
 }
 	
 }

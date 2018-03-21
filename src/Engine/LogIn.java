@@ -107,7 +107,7 @@ public class LogIn {
 
 		icon = new JLabel("");
 		icon.setBounds(197, 104, 170, 170);
-		Image img = new ImageIcon(this.getClass().getResource("iscte2.png")).getImage();
+		Image img = new ImageIcon(/*this.getClass().getResource("iscte2.png")).getImage()*/ "images/iscte2.png");
 
 		Image img2 = img.getScaledInstance(icon.getWidth(), icon.getHeight(), Image.SCALE_SMOOTH);
 		icon.setIcon(new ImageIcon(img2));
@@ -122,7 +122,7 @@ public class LogIn {
 			Scanner r = new Scanner(f);
 			while (r.hasNextLine()) {
 				String[] a = r.nextLine().split("\\t");
-			//	users.add(new User(a[0], a[1]));
+				users.add(new User(a[0], a[1]));
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
