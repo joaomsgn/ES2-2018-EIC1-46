@@ -23,13 +23,13 @@ public class JUnit_Test {
 
 	@Test
 	public void testSetValues() {
-		new Mail().setValues("isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com");
+		new Mail().setValues("isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "Constantine77");
 	}
 	
 	@Test
 	public void testPerformTask() {
 		Mail m = new Mail();
-		m.setValues("isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com");
+		m.setValues("isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "Constantine77");
 		m.performTask();
 	}
 

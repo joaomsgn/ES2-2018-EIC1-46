@@ -139,7 +139,6 @@ public class GUI extends JFrame {
 		btnSubmeter.setBounds(539, 566, 108, 25);
 		btnSubmeter.addActionListener(new ActionListener() {
 			
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				problem = textArea.getText();
 	        	email = textArea_1.getText();
@@ -371,7 +370,7 @@ public class GUI extends JFrame {
 		helpPanel.add(label_24);
 	}
 	class ButtonListener implements ActionListener{
-        @Override
+        
         public void actionPerformed(ActionEvent e){
         	problem = textArea.getText();
         	System.out.println(problem);
@@ -386,9 +385,8 @@ public class GUI extends JFrame {
     }
 }
 	class ButtonListener2 implements ActionListener {
-		@Override
 		public void actionPerformed(ActionEvent e) {
-			int nroVar = (int) spinner_6.getValue();
+			int nroVar = Integer.parseInt((String) spinner_6.getValue());
 			for(int c = 0; c<nroVar; c++){
 				int aux =c*45;
 				helper(aux);
