@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -39,6 +40,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JTable;
 import javax.swing.border.CompoundBorder;
 import javax.swing.JTextPane;
+import javax.swing.JFileChooser;
 
 public class GUI extends JFrame {
 	
@@ -53,6 +55,7 @@ public class GUI extends JFrame {
 	private JPanel panel_5 ;
 	private Worker worker;
 	private JSpinner date ;
+	private File file;
 
 	/**
 	 * Launch the application.
@@ -286,6 +289,17 @@ public class GUI extends JFrame {
 		btnNewButton_5.setBounds(563, 564, 97, 25);
 		panel_4.add(btnNewButton_5);
 		
+		JPanel panel_3 = new JPanel();
+		tabbedPane_2.addTab("Ficheiro do Problema", null, panel_3, null);
+		panel_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JLabel lblAdicionaAquiO = new JLabel("Adiciona aqui o ficheiro .jar do teu problema");
+		panel_3.add(lblAdicionaAquiO);
+		
+		JFileChooser fileChooser = new JFileChooser();
+		panel_3.add(fileChooser);
+		file = new File(fileChooser.getSelectedFile(), "Problema");
+		
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Problemas Existentes", null, panel_1, null);
 		panel_1.setLayout(null);
@@ -457,6 +471,10 @@ public void helper(int aux){
 	 
 	 public void setMail(String s){
 		 textArea_1.setText(s);
+	 }
+	 
+	 public File getJarFile() {
+		return file;
 	 }
 }
 
