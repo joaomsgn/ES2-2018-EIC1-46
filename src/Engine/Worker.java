@@ -149,6 +149,7 @@ public class Worker {
 	}
 
 	public void run() {
+		sendMail("isctee@gmail.com", problem.getEmail(), problem.getTitle(), problem.getDescription());
 		String type = frame.getTypeVar();
 		String jarPath = frame.getJarPathField().getText();
 		switch (type) {
