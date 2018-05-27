@@ -39,7 +39,7 @@ public class ExperimentsBinary {
 	private static final int maxEvaluations = 500;
 	static Problem prob;
 
-	public ExperimentsBinary(Problem p) {
+	public ExperimentsBinary(Problem p) { 
 		prob = p;
 	}
 

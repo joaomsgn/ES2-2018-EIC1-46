@@ -26,7 +26,7 @@ public class MyProblemDouble extends AbstractDoubleProblem {
 			upperLimit.add(Double.parseDouble(prob.getVariables().get(i).getMax()));
 		}
 
-		setLowerLimit(lowerLimit);
+		setLowerLimit(lowerLimit); 
 		setUpperLimit(upperLimit);
 	}
 

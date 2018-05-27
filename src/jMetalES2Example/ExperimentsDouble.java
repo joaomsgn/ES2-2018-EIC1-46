@@ -39,7 +39,7 @@ public class ExperimentsDouble {
 
 	public ExperimentsDouble(Problem p) {
 		prob = p;
-	}
+	} 
 
 	public static void start() throws IOException {
 		String experimentBaseDirectory = "experimentBaseDirectory";

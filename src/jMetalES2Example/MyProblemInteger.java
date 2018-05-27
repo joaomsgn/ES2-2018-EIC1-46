@@ -29,7 +29,7 @@ public class MyProblemInteger extends AbstractIntegerProblem {
 
 	  }
 
-	  public void evaluate(IntegerSolution solution){
+	  public void evaluate(IntegerSolution solution){ 
 	    double[] fx = new double[getNumberOfObjectives()];
 	    int[] x = new int[getNumberOfVariables()];
 	    for (int i = 0; i < solution.getNumberOfVariables(); i++) {

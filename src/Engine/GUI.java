@@ -131,7 +131,7 @@ public class GUI extends JFrame {
 
 		JButton load = new JButton("Load");
 		load.setFont(new Font("Berlin Sans FB", Font.PLAIN, 16));
-		load.setBounds(500, 28, 69, 19);
+		load.setBounds(500, 28, 69, 19);  
 		panel_2.add(load);
 		load.addActionListener(new ActionListener() {
 

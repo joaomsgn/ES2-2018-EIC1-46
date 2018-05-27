@@ -34,7 +34,7 @@ public class ExperimentsInteger {
 
 	public ExperimentsInteger(Problem p) {
 		prob = p;
-	}
+	} 
 
 	public static void start() throws IOException {
 		String experimentBaseDirectory = "experimentBaseDirectory";

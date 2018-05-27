@@ -29,7 +29,7 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	    List<Double> lowerLimit = new ArrayList<>(getNumberOfVariables()) ;
 	    List<Double> upperLimit = new ArrayList<>(getNumberOfVariables()) ;
 
-	    for (int i = 0; i < getNumberOfVariables(); i++) {
+	    for (int i = 0; i < getNumberOfVariables(); i++) { 
 	    System.out.println(prob);
 	    System.out.println(prob.getVariables().size());
 	    System.out.println(prob.getVariables().get(i));

@@ -20,7 +20,7 @@ public class MyProblemBinary extends AbstractBinaryProblem {
 	    setName("MyProblemBinary");
 	    bits = ((String)prob.getVariables().get(0).getMin()).length();
 
-	  }
+	  } 
 	  
 	  @Override
 	  protected int getBitsPerVariable(int index) {
