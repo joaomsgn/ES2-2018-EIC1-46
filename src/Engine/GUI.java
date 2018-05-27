@@ -3,6 +3,7 @@ package Engine;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -70,12 +71,12 @@ public class GUI extends JFrame {
 	private JTextField jarPathField;
 	private JTextArea textArea_8;
 	private String algorithType;
-	public String getAlgorithType() {
-		return algorithType;
-	}
 
 	public void setAlgorithType(String algorithType) {
 		this.algorithType = algorithType;
+	}
+	public JTextArea getTextArea() {
+		return textArea;
 	}
 
 	private JTextField textField;
@@ -131,13 +132,16 @@ public class GUI extends JFrame {
 
 		JButton load = new JButton("Load");
 		load.setFont(new Font("Berlin Sans FB", Font.PLAIN, 16));
-		load.setBounds(500, 28, 69, 19);
+		load.setBounds(500, 28, 69, 19);  
 		panel_2.add(load);
 		load.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				worker.load(textArea.getText());
+				Frame f = new Frame();
+				JFileChooser fileC = new JFileChooser();
+				fileC.showSaveDialog(f);
+				worker.load(fileC.getSelectedFile().getAbsolutePath());
 
 			}
 		});
@@ -154,7 +158,6 @@ public class GUI extends JFrame {
 		textArea_1 = new JTextArea();
 		textArea_1.setBounds(65, 377, 275, 16);
 		// textArea_1.setText(worker.getUser().getMail());
-		textArea.setText("Teste");
 		panel_2.add(textArea_1);
 
 		JLabel label_2 = new JLabel("Problem's Description:");
@@ -386,7 +389,7 @@ public class GUI extends JFrame {
 				}
 
 			}
-		});
+		}); 
 		manualBox.setBounds(50, 74, 97, 23);
 		panel_4.add(manualBox);
 
@@ -622,8 +625,8 @@ public class GUI extends JFrame {
 		return textArea_8;
 	}
 
-	public void setTextArea_8(JTextArea textArea_8) {
-		this.textArea_8 = textArea_8;
+	public void setTextArea_8(String string) {
+		this.textArea_8.setText(string);
 	}
 
 	class ButtonListener implements ActionListener {
@@ -775,6 +778,22 @@ public class GUI extends JFrame {
 		System.out.println(item.getNodeValue());
 		textArea_2.setText(item.getNodeValue());
 	}
+	public void creatObjectiveField(int aux, String string) {
+
+		textField = new JTextField();
+		textField.setBounds(102, 146 + aux, 245, 20);
+		panel_7.add(textField);
+		textField.setColumns(10);
+
+		JLabel lblObjective = new JLabel("Objective " + (aux / 45) + ":");
+		lblObjective.setBounds(41, 149, 64 + aux, 14);
+		panel_7.add(lblObjective);
+		objectives.add(textField);
+		repaint();
+		if(string!=null)
+			textField.setText(string);
+		// worker.addObjective(name);
+	}
 
 	public void setProblem(Node item) {
 		System.out.println(item.getNodeValue());
@@ -789,11 +808,14 @@ public class GUI extends JFrame {
 	public String getTypeVar() {
 		return type;
 	}
-
 	public void setTypeVar(String type2) {
 		varType.setValue(type2);
 	}
+	public void setTextArea(JTextArea textArea) {
+		this.textArea = textArea;
+	}
 
+	
 	public JTextField getJarPathField() {
 		return jarPathField;
 	}
@@ -801,4 +823,39 @@ public class GUI extends JFrame {
 	public DefaultListModel<String> getSelectedAlgs() {
 		return selectedAlgs;
 	}
+	public String getAlgorithType() {
+		return algorithType;
+	}public void setSelectedAlgs(String s) {
+		this.selectedAlgs.addElement(s);;
+	}
+
+	public JCheckBox getSemiBox() {
+		return semiBox;
+	}
+
+	public void setSemiBox() {
+		this.semiBox.doClick();
+	}
+
+	public JCheckBox getManualBox() {
+		return manualBox;
+	}
+
+	public void setManualBox() {
+		this.manualBox.doClick();
+	}
+
+	public JCheckBox getAutomaticBox() {
+		return automaticBox;
+	}
+
+	public void setAutomaticBox() {
+		this.automaticBox.doClick();
+	}
+
+	public void setJarPathField(String jarPathField) {
+		this.jarPathField.setText(jarPathField);
+	}
+
+
 }

@@ -19,24 +19,17 @@ import javax.mail.internet.MimeMultipart;
 
 
 public class Mail extends Thread{
-	private String fileName;
+	private MailProduct mailProduct = new MailProduct();
 	private String host;
-	private static String user;
-	private static String password;
+	public static String user;
+	public static String password;
 
-	private Properties properties;
-
-	private MimeMessage message;
-	private BodyPart messageBodyPart;
-	private Multipart multipart;
-
-	private Authenticator authenticator;
 	private boolean send = false;
 
 	String  to, subject, messageBody;
 
 	public Mail(String mail, String pass) {
-		fileName = "ProblemaDeOtimizaçãoDoTipoDouble.xml";
+		mailProduct.setFileName("ProblemaDeOtimizaçãoDoTipoDouble.xml");
 		host = "smtp.gmail.com";
 		if(mail.contains("@") && (mail.contains(".com") || mail.contains(".pt"))){
 			user = mail;
@@ -46,50 +39,22 @@ public class Mail extends Thread{
 			user = "es2.2018.eic1.46@gmail.com";
 			password = "ESIIAdmin";
 		}
-		authenticator = new SMTPAuthenticator();
-		properties = System.getProperties();
-		properties.put("mail.smtp.host", host);
-		properties.put("mail.smtp.starttls.enable", "true");
+		mailProduct.setAuthenticator(new SMTPAuthenticator());
+		mailProduct.setProperties(System.getProperties());
+		mailProduct.getProperties().put("mail.smtp.host", host);
+		mailProduct.getProperties().put("mail.smtp.starttls.enable", "true");
 
-		properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+		mailProduct.getProperties().put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
-		properties.put("mail.smtp.port", "587");
-		properties.put("mail.smtp.auth", "true");
+		mailProduct.getProperties().put("mail.smtp.port", "587");
+		mailProduct.getProperties().put("mail.smtp.auth", "true");
 	}
 
-	private void sendMail(String from, String to, String subject, String messageBody) {
-		try {
-			Session session = Session.getDefaultInstance(properties, authenticator);
-			message = new MimeMessage(session);
-			message.setFrom(new InternetAddress(from));
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-			message.setSubject(subject);
-
-			multipart = new MimeMultipart();
-			messageBodyPart = new MimeBodyPart();
-			messageBodyPart.setContent(messageBody, "text/html");
-			multipart.addBodyPart(messageBodyPart);
-
-			messageBodyPart = new MimeBodyPart();
-			DataSource source = new FileDataSource(fileName);
-			messageBodyPart.setDataHandler(new DataHandler(source));
-			messageBodyPart.setFileName(fileName);
-			multipart.addBodyPart(messageBodyPart);
-
-			message.setContent(multipart);
-			System.out.println(user +" - " +password);
-			Transport.send(message);
-			System.out.println("Message send successfully....");
-		} catch (Exception me) {
-			me.printStackTrace();
-		}
-	}
-	
 	void performTask() {
-		sendMail(user, to, subject, messageBody);
+		mailProduct.sendMail(user, to, subject, messageBody);
 		user = "es2.2018.eic1.46@gmail.com";
 		password = "ESIIAdmin";
-		sendMail(to, user, subject, messageBody);
+		mailProduct.sendMail(to, user, subject, messageBody);
 	}
 
 	public void setValues(String from, String to, String subject, String messageBody) {
@@ -130,6 +95,12 @@ public class Mail extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public Object clone() throws java.lang.CloneNotSupportedException {
+		Mail clone = (Mail) super.clone();
+		clone.mailProduct = (MailProduct) this.mailProduct.clone();
+		return clone;
 	}
 	
 }
