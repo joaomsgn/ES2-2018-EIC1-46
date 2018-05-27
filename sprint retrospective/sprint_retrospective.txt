@@ -1,0 +1,71 @@
+﻿
+Product backlog:
+
+O grupo optou por realizar estes quatro perfis. Cada membro do grupo esteve encarregue por um do prefis. Contudo, todos os membros tiveram parte ativa em cada prefil, visto que todos ajudaram em todas as fases.
+
+•Perfil  1a:  Implementaçãodo  frontend  da  plataforma  em  Java  (interface  gráfica  e  acesso/gestão  dos dados,  popular  GUI  a  partir  do  jMetal,  definição  da  estrutura  dos  ficheiros  XML,  operações  de  leitura  e escrita dos ficheiros XML, etc.);
+
+•Perfil   2a:Implementação  do  processo  de  otimização.  Configuração  automática  do  processo  de otimização a partir da caracterização do problema e algoritmos sugeridos pelo utilizador através da GUI, implementação  do  problema  de  otimização,  execução  e  tratamento  dos  outputs  gerados  pelo  processo e otimização;
+
+•Perfil 3a:Implementação  do  problema de  otimização,  incluindo  a  integração  das  funções  objetivo disponibilizadas pelo utilizador sob a forma de ficheiros executáveis .jar;
+
+•Perfil 4a:Visualização  das melhores  soluções (soluções  ótimas)  geradas  no processo  de  otimização, devendo  ser  possível  distinguir  as  soluções  ótimas  dos vários  algoritmos  testados,  bem  como  a sua comparação  com  a(s)  melhor(es)  solução(ões)  conhecida(s)  pelo  utilizador  (fornecidas  pelo  utilizador através  da  GUI).  O  membro  do  grupo  responsável  pela  visualização  dos  dados  deverá  escolher  uma biblioteca  para  representação  gráfica  das  soluções,  desenvolver  a  solução  de  visualização/comparação das soluções ótimas e garantir a respetiva integração com a aplicação Java desenvolvida pelo grupo de trabalho;
+
+
+Sprints:
+- O grupo fez quatro sprints.
+- Cada sprint corresponde a um dos perfis.
+- Cada sprint teve um membro que trabalho mais mas todos os membros contribuiram para o sucesso do mesmo.
+- cada sprint teve a duração de duas semanas.
+
+Tarefas previsiveis (a duração das tarefas deve ser definida e depende de cada grupo):
+- Cada prefil tem um conjunto de tarefas previstas.
+
+-Prefil 1a: 1 - Desenvolvimento da GUI;
+			2 - Implementação do envio de e-mails através da plataforma desenvolvida;
+			3 - implementação da leitura e escrita dos ficheiros XML;
+			4 - Testes JUnit.
+	Este perfil foi realizado pelo João Neto.
+	Teve a duração de duas semanas.
+			
+-Prefil 2a: 1 - Implementação  do  processo  de  otimização;
+			2 - Configuração  automática  do  processo  de otimização;
+			3 - Implementação  do  problema  de  otimização;
+			4 - Execução  e  tratamento  dos  outputs  gerados  pelo  processo e otimização.
+	Este perfil foi realizado pelo André Neiva.
+	Teve a duração de duas semanas.
+			
+-Prefil 3a: 1 - Implementação  do  problema de  otimização;
+			2 - Integração  das  funções  objetivo disponibilizadas pelo utilizador sob a forma de ficheiros executáveis .jar.
+	Este perfil foi realizado pela Mariana Oom.
+	Teve a duração de três semanas.
+			
+-Prefil 4a: 1 - Visualização  das melhores  soluções (soluções  ótimas)  geradas  no processo  de  otimização;
+			2 - Comparação  com  as  melhores soluções  conhecidas  pelo  utilizador;
+			3 - Escolher  uma biblioteca  para  representação  gráfica  das  soluções;
+			4 - Desenvolver  a  solução  de  visualização/comparação das soluções ótimas;
+			5 - Garantir a respetiva integração com a aplicação Java desenvolvida;
+			6 - Implementação de testes unitários jUnit e geração do relatório de cobertura de testes; 
+			7 - Relatório dos Code Smells;
+			8 - Vídeo de entrega.
+	Este perfil foi realizado pelo Pedro Ramos.
+	Os Testes unitários foram realizados pelo André Neiva.
+	Os Code Smells foram realizados pela Mariana Oom.
+	O vídeo de entrega fou realizado pelo Pedro Ramos.
+	Teve a duração de três semanas.
+
+Desenho de software: 
+	Package: Engine
+	Worker - utilizado para correr a aplicação
+	Variavel- classe que define as variáveis de decisão
+	User- classe que define o utilizador tendo como atributos os seus dados pessoais
+	Mail- classe utilizada para possibilitar a comunicação por e-mail no projeto.
+	LogIn- utilizado para fazer a autenticação fazendo uma comunicação entre a janela e a base de dados
+	GUI- utilizado para toda a parte grafica do projeto
+	Problem- utilizado para toda a informação relativa as variaveis introduzidas pelo utilizador
+
+Validação e verificação de software:
+- Implementação de testes unitários jUnit e geração do relatório de cobertura de testes (Eclipse plugin - Eclemma).
+- Relatório dos Code Smells (plugin Eclipse jDeodorant).
+- Sprint review com o cliente (apresentação do projeto).
+- Sprint retrospective.
