@@ -44,7 +44,7 @@ public class Worker {
 	}
 
 	public void sendMail(String from, String to, String subject, String body) {
-		mail_sender = new Mail(user.getMail(), user.getPassword());
+		mail_sender = new Mail(user.getMail(), user.getPassword(),0);
 		System.out.println(user.getMail() + " - " + user.getPassword());
 		mail_sender.setValues(from, to, subject, body);
 		mail_sender.start();
@@ -195,7 +195,7 @@ public class Worker {
 							.directory(new File("experimentBaseDirectory\\ExperimentsDoubleExternalViaJAR\\R")).start();
 					Process process2 = new ProcessBuilder(
 							"D:\\Programas\\Nova Pasta(2)\\miktex\\bin\\x64\\miktex-pdflatex.exe",
-							"ExperimentsDouble.tex").directory(
+							"ExperimentsDoubleExternalViaJAR.tex").directory(
 									new File("experimentBaseDirectory\\ExperimentsDoubleExternalViaJAR\\latex\\"))
 									.start();
 				} catch (IOException e) {
@@ -258,6 +258,14 @@ public class Worker {
 	public void addObjective(String name) {
 		// TODO Auto-generated method stub
 		problem.addObjectives(name);
+	}
+
+	public void sendMail2(String from, String to, String subject, String body) {
+		// TODO Auto-generated method stub
+		mail_sender = new Mail(user.getMail(), user.getPassword(),1);
+		System.out.println(user.getMail() + " - " + user.getPassword());
+		mail_sender.setValues(from, to, subject, body);
+		mail_sender.start();
 	}
 
 }

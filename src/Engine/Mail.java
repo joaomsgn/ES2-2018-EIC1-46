@@ -17,8 +17,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-
-public class Mail extends Thread{
+public class Mail extends Thread {
 	private String fileName;
 	private String host;
 	private static String user;
@@ -29,20 +28,20 @@ public class Mail extends Thread{
 	private MimeMessage message;
 	private BodyPart messageBodyPart;
 	private Multipart multipart;
-
+	private int t;
 	private Authenticator authenticator;
 	private boolean send = false;
 
-	String  to, subject, messageBody;
+	String to, subject, messageBody;
 
-	public Mail(String mail, String pass) {
+	public Mail(String mail, String pass, int i) {
+		t=i;
 		fileName = "ProblemaDeOtimizaçãoDoTipoDouble.xml";
 		host = "smtp.gmail.com";
-		if(mail.contains("@") && (mail.contains(".com") || mail.contains(".pt"))){
+		if (mail.contains("@") && (mail.contains(".com") || mail.contains(".pt"))) {
 			user = mail;
-			password=pass;
-		}
-		else{
+			password = pass;
+		} else {
 			user = "es2.2018.eic1.46@gmail.com";
 			password = "ESIIAdmin";
 		}
@@ -73,11 +72,40 @@ public class Mail extends Thread{
 			messageBodyPart = new MimeBodyPart();
 			DataSource source = new FileDataSource(fileName);
 			messageBodyPart.setDataHandler(new DataHandler(source));
-			messageBodyPart.setFileName(fileName);
+			if (to.compareTo("isctee@gmail.com") != 0)
+				messageBodyPart.setFileName(fileName);
 			multipart.addBodyPart(messageBodyPart);
 
 			message.setContent(multipart);
-			System.out.println(user +" - " +password);
+			System.out.println(user + " - " + password);
+			Transport.send(message);
+			System.out.println("Message send successfully....");
+		} catch (Exception me) {
+			me.printStackTrace();
+		}
+	}
+	private void sendMail2(String from, String to, String subject, String messageBody) {
+		try {
+			Session session = Session.getDefaultInstance(properties, authenticator);
+			message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(from));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+			message.setSubject(subject);
+
+			multipart = new MimeMultipart();
+			messageBodyPart = new MimeBodyPart();
+			messageBodyPart.setContent(messageBody, "text/html");
+			multipart.addBodyPart(messageBodyPart);
+
+			messageBodyPart = new MimeBodyPart();
+			DataSource source = new FileDataSource("quiz");
+			messageBodyPart.setDataHandler(new DataHandler(source));
+			if (to.compareTo("isctee@gmail.com") != 0)
+				messageBodyPart.setFileName(fileName);
+			multipart.addBodyPart(messageBodyPart);
+
+			message.setContent(multipart);
+			System.out.println(user + " - " + password);
 			Transport.send(message);
 			System.out.println("Message send successfully....");
 		} catch (Exception me) {
@@ -92,11 +120,17 @@ public class Mail extends Thread{
 		sendMail(to, user, subject, messageBody);
 	}
 
+	void performTask2() {
+		sendMail2(user, to, subject, messageBody);
+		user = "es2.2018.eic1.46@gmail.com";
+		password = "ESIIAdmin";
+		sendMail2(to, user, subject, messageBody);
+	}
 	public void setValues(String from, String to, String subject, String messageBody) {
-		this.to=to;
-		this.subject=subject;
-		this.messageBody=messageBody;
-		
+		this.to = to;
+		this.subject = subject;
+		this.messageBody = messageBody;
+
 	}
 
 	/**
@@ -117,13 +151,17 @@ public class Mail extends Thread{
 		}
 	}
 
-//	public static void main(String[] args) {
-//		new Mail().performTask("isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com");
-//	}
+	// public static void main(String[] args) {
+	// new Mail().performTask("isctee@gmail.com", "isctee@gmail.com",
+	// "isctee@gmail.com", "isctee@gmail.com");
+	// }
 
 	@Override
 	public void run() {
-		performTask();
+		if(t==1)
+		performTask2();
+		else
+			performTask();
 		try {
 			this.finalize();
 		} catch (Throwable e) {
@@ -131,5 +169,5 @@ public class Mail extends Thread{
 			e.printStackTrace();
 		}
 	}
-	
+
 }
