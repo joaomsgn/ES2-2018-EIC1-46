@@ -20,13 +20,13 @@ public class Worker {
 	private GUI frame;
 	// private ArrayList<Variavel> variables = new ArrayList<Variavel>();
 	private Xml file = new Xml();
-	private User user;
+	private User user = new User("Neto", "olaadeus");
 	private String jarPath;
 	private Problem problem = new Problem();
 
 	public Worker() {
-		LogIn login = new LogIn(this);
-		// Lauch();
+//		LogIn login = new LogIn(this);
+		 Lauch();
 	}
 
 	public void Lauch() {
