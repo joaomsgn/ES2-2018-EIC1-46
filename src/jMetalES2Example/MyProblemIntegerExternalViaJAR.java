@@ -32,7 +32,7 @@ public class MyProblemIntegerExternalViaJAR extends AbstractIntegerProblem {
 	    for (int i = 0; i < getNumberOfVariables(); i++) {
 	      lowerLimit.add(Integer.parseInt(prob.getVariables().get(i).getMin()));
 	      upperLimit.add(Integer.parseInt(prob.getVariables().get(i).getMax()));
-	    }
+	    }  
 
 	    setLowerLimit(lowerLimit);
 	    setUpperLimit(upperLimit);
