@@ -33,7 +33,7 @@ public class ExperimentsIntegerExternalViaJAR {
 	static Problem prob;
 	public ExperimentsIntegerExternalViaJAR(Problem p){
 		prob=p;
-	}
+	} 
 	
 	public void start() throws IOException {
 		System.out.println("ola");

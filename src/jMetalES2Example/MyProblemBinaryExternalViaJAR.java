@@ -23,7 +23,7 @@ public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	// }
 	private int bits;
 	Problem prob;
-
+ 
 	public MyProblemBinaryExternalViaJAR(Problem p) throws JMetalException {
 		prob = p;
 		setNumberOfVariables(prob.getVariables().size());

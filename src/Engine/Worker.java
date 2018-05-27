@@ -200,7 +200,7 @@ public class Worker {
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				} 
 			} else {
 				ExperimentsDouble b = new ExperimentsDouble(problem);
 				try {
