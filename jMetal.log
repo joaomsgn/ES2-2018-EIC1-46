@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-05-27T12:14:24</date>
+  <millis>1527419664126</millis>
+  <sequence>0</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.JMetalLogger</class>
+  <method>configureLoggers</method>
+  <thread>16</thread>
+  <message>Loggers configured with null</message>
+</record>
+<record>
+  <date>2018-05-27T12:14:24</date>
+  <millis>1527419664137</millis>
+  <sequence>1</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>16</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2018-05-27T12:14:24</date>
+  <millis>1527419664154</millis>
+  <sequence>2</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>16</thread>
+  <message>Creating experimentBaseDirectory/ExperimentsIntegerExternalViaJAR/data/MOCell/MyProblemIntegerExternalViaJAR</message>
+</record>
+<record>
+  <date>2018-05-27T12:14:24</date>
+  <millis>1527419664154</millis>
+  <sequence>3</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>16</thread>
+  <message> Running algorithm: MOCell, problem: MyProblemIntegerExternalViaJAR, run: 0, funFile: experimentBaseDirectory/ExperimentsIntegerExternalViaJAR/data/MOCell/MyProblemIntegerExternalViaJAR/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-27T12:14:42</date>
+  <millis>1527419682097</millis>
+  <sequence>4</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>16</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2018-05-27T12:14:42</date>
+  <millis>1527419682100</millis>
+  <sequence>5</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>16</thread>
+  <message> Running algorithm: NSGAII, problem: MyProblemIntegerExternalViaJAR, run: 0, funFile: experimentBaseDirectory/ExperimentsIntegerExternalViaJAR/data/NSGAII/MyProblemIntegerExternalViaJAR/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-27T12:14:42</date>
+  <millis>1527419682100</millis>
+  <sequence>6</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>45</thread>
+  <message> Running algorithm: MOCell, problem: MyProblemIntegerExternalViaJAR, run: 0, funFile: experimentBaseDirectory/ExperimentsIntegerExternalViaJAR/data/MOCell/MyProblemIntegerExternalViaJAR/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-27T12:15:09</date>
+  <millis>1527419709606</millis>
+  <sequence>7</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>16</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2018-05-27T12:15:09</date>
+  <millis>1527419709607</millis>
+  <sequence>8</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>16</thread>
+  <message> Running algorithm: NSGAII, problem: MyProblemIntegerExternalViaJAR, run: 0, funFile: experimentBaseDirectory/ExperimentsIntegerExternalViaJAR/data/NSGAII/MyProblemIntegerExternalViaJAR/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-27T12:15:09</date>
+  <millis>1527419709609</millis>
+  <sequence>9</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>56</thread>
+  <message>Creating experimentBaseDirectory/ExperimentsIntegerExternalViaJAR/data/SMSEMOA/MyProblemIntegerExternalViaJAR</message>
+</record>
+<record>
+  <date>2018-05-27T12:15:09</date>
+  <millis>1527419709611</millis>
+  <sequence>10</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>56</thread>
+  <message> Running algorithm: SMSEMOA, problem: MyProblemIntegerExternalViaJAR, run: 0, funFile: experimentBaseDirectory/ExperimentsIntegerExternalViaJAR/data/SMSEMOA/MyProblemIntegerExternalViaJAR/FUN0.tsv</message>
+</record>
+</log>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<File>
+<User Name="Neto"/>
+<Problem Date="Sun May 27 11:57:43 BST 2018" Description="DD" Problem="DDD" UserEmail="marianasousaoom@gmail.com"/>
+<fvt Type="Double" r="1 - 2" rr="1 - 2"/>
+<Objectives Objective="22"/>
+<Algorithms Algorithm="NSGAII" JarPAth="C:\Users\Mariana Oom\Desktop\ES2\pastas_es\OneZeroMax.jar" Type=""/>
+</File>

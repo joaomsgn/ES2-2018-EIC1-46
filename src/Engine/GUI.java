@@ -389,7 +389,7 @@ public class GUI extends JFrame {
 				}
 
 			}
-		});
+		}); 
 		manualBox.setBounds(50, 74, 97, 23);
 		panel_4.add(manualBox);
 

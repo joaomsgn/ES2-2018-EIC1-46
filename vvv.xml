@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<File>
+<User Name="Neto"/>
+<Problem Date="Wed May 30 12:13:00 BST 2018" Description="vv" Problem="vvv" UserEmail="marianasousaoom@gmail.com"/>
+<fef Type="Integer" e="1 - 2" ee="12 - 2"/>
+<Objectives Objective="22"/>
+<Algorithms Algorithm="NSGAII" JarPAth="C:\Users\Mariana Oom\Desktop\ES2\pastas_es\OneZeroMax.jar" Type=""/>
+</File>

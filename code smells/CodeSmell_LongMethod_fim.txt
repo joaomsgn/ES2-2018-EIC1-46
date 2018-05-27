@@ -1,0 +1,8 @@
+Engine.Worker	public void saveProblem() 	var	B1	0/3
+Engine.Worker	private void problem() 	result	B1	0/3
+Engine.Worker	private void problem() 	result	B2	0/2
+Engine.Worker	public void sendMail(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 	mail_sender	B1	0/2
+Engine.Worker	public void load(java.lang.String) 	frame	B1	1/4
+Engine.Worker	public void load(java.lang.String) 	frame	B4	0/3
+Engine.Worker	public void load(java.lang.String) 	frame	B5	0/2
+Engine.Xml	public org.w3c.dom.Node read(java.lang.String) 	dBuilder	B1	1/4
