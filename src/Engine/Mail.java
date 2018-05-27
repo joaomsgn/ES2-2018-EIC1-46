@@ -17,25 +17,56 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+<<<<<<< HEAD
+public class Mail extends Thread {
+	private String fileName;
+=======
 
 public class Mail extends Thread{
 	private MailProduct mailProduct = new MailProduct();
+<<<<<<< HEAD
+=======
+>>>>>>> d27a61514374775671ff174e6810d4d9ee2b0f5b
+>>>>>>> 7c27176b63ec5090a680220f52788d19d57889df
 	private String host;
 	public static String user;
 	public static String password;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	private Properties properties;
+
+	private MimeMessage message;
+	private BodyPart messageBodyPart;
+	private Multipart multipart;
+	private int t;
+	private Authenticator authenticator;
+=======
+>>>>>>> d27a61514374775671ff174e6810d4d9ee2b0f5b
+>>>>>>> 7c27176b63ec5090a680220f52788d19d57889df
 	private boolean send = false;
 
-	String  to, subject, messageBody;
+	String to, subject, messageBody;
 
+<<<<<<< HEAD
 	public Mail(String mail, String pass) {
 		mailProduct.setFileName("ProblemaDeOtimizaçãoDoTipoDouble.xml");
+=======
+<<<<<<< HEAD
+	public Mail(String mail, String pass, int i) {
+		t=i;
+		fileName = "ProblemaDeOtimizaçãoDoTipoDouble.xml";
+=======
+	public Mail(String mail, String pass) {
+		mailProduct.setFileName("ProblemaDeOtimizaçãoDoTipoDouble.xml");
+>>>>>>> d27a61514374775671ff174e6810d4d9ee2b0f5b
+>>>>>>> 7c27176b63ec5090a680220f52788d19d57889df
 		host = "smtp.gmail.com";
-		if(mail.contains("@") && (mail.contains(".com") || mail.contains(".pt"))){
+		if (mail.contains("@") && (mail.contains(".com") || mail.contains(".pt"))) {
 			user = mail;
-			password=pass;
-		}
-		else{
+			password = pass;
+		} else {
 			user = "es2.2018.eic1.46@gmail.com";
 			password = "ESIIAdmin";
 		}
@@ -50,6 +81,69 @@ public class Mail extends Thread{
 		mailProduct.getProperties().put("mail.smtp.auth", "true");
 	}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	private void sendMail(String from, String to, String subject, String messageBody) {
+		try {
+			Session session = Session.getDefaultInstance(properties, authenticator);
+			message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(from));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+			message.setSubject(subject);
+
+			multipart = new MimeMultipart();
+			messageBodyPart = new MimeBodyPart();
+			messageBodyPart.setContent(messageBody, "text/html");
+			multipart.addBodyPart(messageBodyPart);
+
+			messageBodyPart = new MimeBodyPart();
+			DataSource source = new FileDataSource(fileName);
+			messageBodyPart.setDataHandler(new DataHandler(source));
+			if (to.compareTo("isctee@gmail.com") != 0)
+				messageBodyPart.setFileName(fileName);
+			multipart.addBodyPart(messageBodyPart);
+
+			message.setContent(multipart);
+			System.out.println(user + " - " + password);
+			Transport.send(message);
+			System.out.println("Message send successfully....");
+		} catch (Exception me) {
+			me.printStackTrace();
+		}
+	}
+	private void sendMail2(String from, String to, String subject, String messageBody) {
+		try {
+			Session session = Session.getDefaultInstance(properties, authenticator);
+			message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(from));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+			message.setSubject(subject);
+
+			multipart = new MimeMultipart();
+			messageBodyPart = new MimeBodyPart();
+			messageBodyPart.setContent(messageBody, "text/html");
+			multipart.addBodyPart(messageBodyPart);
+
+			messageBodyPart = new MimeBodyPart();
+			DataSource source = new FileDataSource("quiz");
+			messageBodyPart.setDataHandler(new DataHandler(source));
+			if (to.compareTo("isctee@gmail.com") != 0)
+				messageBodyPart.setFileName(fileName);
+			multipart.addBodyPart(messageBodyPart);
+
+			message.setContent(multipart);
+			System.out.println(user + " - " + password);
+			Transport.send(message);
+			System.out.println("Message send successfully....");
+		} catch (Exception me) {
+			me.printStackTrace();
+		}
+	}
+	
+=======
+>>>>>>> d27a61514374775671ff174e6810d4d9ee2b0f5b
+>>>>>>> 7c27176b63ec5090a680220f52788d19d57889df
 	void performTask() {
 		mailProduct.sendMail(user, to, subject, messageBody);
 		user = "es2.2018.eic1.46@gmail.com";
@@ -57,11 +151,17 @@ public class Mail extends Thread{
 		mailProduct.sendMail(to, user, subject, messageBody);
 	}
 
+	void performTask2() {
+		sendMail2(user, to, subject, messageBody);
+		user = "es2.2018.eic1.46@gmail.com";
+		password = "ESIIAdmin";
+		sendMail2(to, user, subject, messageBody);
+	}
 	public void setValues(String from, String to, String subject, String messageBody) {
-		this.to=to;
-		this.subject=subject;
-		this.messageBody=messageBody;
-		
+		this.to = to;
+		this.subject = subject;
+		this.messageBody = messageBody;
+
 	}
 
 	/**
@@ -82,13 +182,17 @@ public class Mail extends Thread{
 		}
 	}
 
-//	public static void main(String[] args) {
-//		new Mail().performTask("isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com", "isctee@gmail.com");
-//	}
+	// public static void main(String[] args) {
+	// new Mail().performTask("isctee@gmail.com", "isctee@gmail.com",
+	// "isctee@gmail.com", "isctee@gmail.com");
+	// }
 
 	@Override
 	public void run() {
-		performTask();
+		if(t==1)
+		performTask2();
+		else
+			performTask();
 		try {
 			this.finalize();
 		} catch (Throwable e) {
@@ -97,10 +201,16 @@ public class Mail extends Thread{
 		}
 	}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 7c27176b63ec5090a680220f52788d19d57889df
 	public Object clone() throws java.lang.CloneNotSupportedException {
 		Mail clone = (Mail) super.clone();
 		clone.mailProduct = (MailProduct) this.mailProduct.clone();
 		return clone;
 	}
 	
+>>>>>>> d27a61514374775671ff174e6810d4d9ee2b0f5b
 }

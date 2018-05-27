@@ -593,6 +593,14 @@ public class GUI extends JFrame {
 		btnNewButton.setFont(new Font("Berlin Sans FB", Font.PLAIN, 16));
 		btnNewButton.setBounds(12, 347, 97, 25);
 		newEmailPanel.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				worker.sendMail2("isctee@gmail.com", "isctee@gmail.com", "Esclarecimento sobre utilização da aplicação de otimização","Gostaria que me contactassem por telefone para o nº 21 000 00 00.");
+			}
+		});
 
 		JPanel panel_6 = new JPanel();
 		tabbedPane_1.addTab("Inbox", null, panel_6, null);
