@@ -3,6 +3,7 @@ package Engine;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -137,7 +138,10 @@ public class GUI extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				worker.load(textArea.getText());
+				Frame f = new Frame();
+				JFileChooser fileC = new JFileChooser();
+				fileC.showSaveDialog(f);
+				worker.load(fileC.getSelectedFile().getAbsolutePath());
 
 			}
 		});
@@ -154,7 +158,6 @@ public class GUI extends JFrame {
 		textArea_1 = new JTextArea();
 		textArea_1.setBounds(65, 377, 275, 16);
 		// textArea_1.setText(worker.getUser().getMail());
-		textArea.setText("Teste");
 		panel_2.add(textArea_1);
 
 		JLabel label_2 = new JLabel("Problem's Description:");
