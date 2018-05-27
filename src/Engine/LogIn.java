@@ -74,10 +74,12 @@ public class LogIn {
 
 		passwordField = new JPasswordField();
 		passwordField.setBounds(108, 72, 293, 19);
+		passwordField.setText("olaadeus");
 		frame.getContentPane().add(passwordField);
 
 		textArea = new JTextArea();
 		textArea.setBounds(108, 22, 293, 19);
+		textArea.setText("Neto");
 		frame.getContentPane().add(textArea);
 
 		JButton btnNewButton = new JButton("Login");
@@ -111,7 +113,6 @@ public class LogIn {
 		icon.setIcon(new ImageIcon(img));
 
 		frame.getContentPane().add(icon);
-
 		}
 
 	private void read_BD() {
