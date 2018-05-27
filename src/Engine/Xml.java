@@ -51,13 +51,6 @@ public class Xml {
 
 			Element newElement2 = doc.createElement("Problem");
 			newElement2.setAttribute("Date", prob.getDate());
-<<<<<<< HEAD
-			newElement2.setAttribute("Description", prob.getDescription());
-			newElement2.setAttribute("Problem", prob.getProblem());
-			newElement2.setAttribute("UserEmail", prob.getEmail());
-			root.appendChild(newElement2);
-			Element newElement3 = doc.createElement(prob.getVarName());
-=======
 			newElement2.setAttribute("Description", prob.getDescription().replace(' ', '.'));
 			newElement2.setAttribute("Problem", prob.getProblem().replace(' ', '.'));
 			newElement2.setAttribute("UserEmail", prob.getEmail());
@@ -66,7 +59,6 @@ public class Xml {
 			String d =prob.getVarName().replace(' ', '.');
 			System.out.println(d.contains(" "));
 			Element newElement3 = doc.createElement(d);
->>>>>>> 7c27176b63ec5090a680220f52788d19d57889df
 			for (int i = 0; i < prob.getVariables().size(); i++) {
 				if (i == 0)
 					newElement3.setAttribute("Type", prob.getType());
@@ -76,15 +68,9 @@ public class Xml {
 				System.out.println("3 -" + prob.getVariables().get(i).getMin());
 				System.out.println("4 -" + prob.getVariables().get(i).getMax());
 				if (prob.getType() == "Binary")
-<<<<<<< HEAD
-					newElement3.setAttribute(prob.getVariables().get(i).getName(), prob.getVariables().get(i).getMin());
-				else
-					newElement3.setAttribute(prob.getVariables().get(i).getName(),
-=======
 					newElement3.setAttribute(prob.getVariables().get(i).getName().replace(' ', '.'), prob.getVariables().get(i).getMin());
 				else
 					newElement3.setAttribute(prob.getVariables().get(i).getName().replace(' ', '.'),
->>>>>>> 7c27176b63ec5090a680220f52788d19d57889df
 							prob.getVariables().get(i).getMin() + " - " + prob.getVariables().get(i).getMax());
 			}
 			root.appendChild(newElement3);
