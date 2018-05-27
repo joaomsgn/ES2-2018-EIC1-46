@@ -70,12 +70,12 @@ public class GUI extends JFrame {
 	private JTextField jarPathField;
 	private JTextArea textArea_8;
 	private String algorithType;
-	public String getAlgorithType() {
-		return algorithType;
-	}
 
 	public void setAlgorithType(String algorithType) {
 		this.algorithType = algorithType;
+	}
+	public JTextArea getTextArea() {
+		return textArea;
 	}
 
 	private JTextField textField;
@@ -622,8 +622,8 @@ public class GUI extends JFrame {
 		return textArea_8;
 	}
 
-	public void setTextArea_8(JTextArea textArea_8) {
-		this.textArea_8 = textArea_8;
+	public void setTextArea_8(String string) {
+		this.textArea_8.setText(string);
 	}
 
 	class ButtonListener implements ActionListener {
@@ -775,6 +775,22 @@ public class GUI extends JFrame {
 		System.out.println(item.getNodeValue());
 		textArea_2.setText(item.getNodeValue());
 	}
+	public void creatObjectiveField(int aux, String string) {
+
+		textField = new JTextField();
+		textField.setBounds(102, 146 + aux, 245, 20);
+		panel_7.add(textField);
+		textField.setColumns(10);
+
+		JLabel lblObjective = new JLabel("Objective " + (aux / 45) + ":");
+		lblObjective.setBounds(41, 149, 64 + aux, 14);
+		panel_7.add(lblObjective);
+		objectives.add(textField);
+		repaint();
+		if(string!=null)
+			textField.setText(string);
+		// worker.addObjective(name);
+	}
 
 	public void setProblem(Node item) {
 		System.out.println(item.getNodeValue());
@@ -789,11 +805,14 @@ public class GUI extends JFrame {
 	public String getTypeVar() {
 		return type;
 	}
-
 	public void setTypeVar(String type2) {
 		varType.setValue(type2);
 	}
+	public void setTextArea(JTextArea textArea) {
+		this.textArea = textArea;
+	}
 
+	
 	public JTextField getJarPathField() {
 		return jarPathField;
 	}
@@ -801,4 +820,39 @@ public class GUI extends JFrame {
 	public DefaultListModel<String> getSelectedAlgs() {
 		return selectedAlgs;
 	}
+	public String getAlgorithType() {
+		return algorithType;
+	}public void setSelectedAlgs(String s) {
+		this.selectedAlgs.addElement(s);;
+	}
+
+	public JCheckBox getSemiBox() {
+		return semiBox;
+	}
+
+	public void setSemiBox() {
+		this.semiBox.doClick();
+	}
+
+	public JCheckBox getManualBox() {
+		return manualBox;
+	}
+
+	public void setManualBox() {
+		this.manualBox.doClick();
+	}
+
+	public JCheckBox getAutomaticBox() {
+		return automaticBox;
+	}
+
+	public void setAutomaticBox() {
+		this.automaticBox.doClick();
+	}
+
+	public void setJarPathField(String jarPathField) {
+		this.jarPathField.setText(jarPathField);
+	}
+
+
 }
