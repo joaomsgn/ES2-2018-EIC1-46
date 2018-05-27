@@ -56,6 +56,16 @@ public class Worker {
 	}
 
 	public void saveProblem() {
+		problem();
+		for(Variavel var : problem.getVariables())
+			var.setValues();
+		for (JTextField name : frame.getObjectives())
+			addObjective(name.getText());
+		System.out.println(" --------------------------------------------------- " +frame.getTextArea_8().getText());
+		file.write(problem);
+	}
+
+	private void problem() {
 		problem.setDate(frame.getDate());
 		problem.setProblem(frame.getProblem());
 		problem.setUser(user);
@@ -65,17 +75,12 @@ public class Worker {
 		problem.setType(frame.getTypeVar());
 		problem.setJarPath(frame.getJarPathField().getText());
 		String[] result = new String[frame.getSelectedAlgs().size()];
-		for (int i = 0; i < result.length; i++)
+		for (int i = 0; i < result.length; i++) {
 			result[i] = frame.getSelectedAlgs().getElementAt(i);
-		for(Variavel var : problem.getVariables())
-			var.setValues();
-		for (JTextField name : frame.getObjectives())
-			addObjective(name.getText());
-		System.out.println(" --------------------------------------------------- " +frame.getTextArea_8().getText());
+		}
 		problem.setVarName(frame.getTextArea_8().getText());
 		problem.setAlgType(frame.getAlgorithType());
 		problem.setAlgorithms(result);
-		file.write(problem);
 	}
 
 	public User getUser() {

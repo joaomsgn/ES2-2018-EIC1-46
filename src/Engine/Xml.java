@@ -97,8 +97,8 @@ public class Xml {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
+	} 
+ 
 	public Node read(String filename) {
 		System.out.println("Entrei no read");
 		File inputFile = new File(filename);

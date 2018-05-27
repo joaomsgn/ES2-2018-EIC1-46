@@ -17,12 +17,19 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+<<<<<<< HEAD
 public class Mail extends Thread {
 	private String fileName;
-	private String host;
-	private static String user;
-	private static String password;
+=======
 
+public class Mail extends Thread{
+	private MailProduct mailProduct = new MailProduct();
+>>>>>>> d27a61514374775671ff174e6810d4d9ee2b0f5b
+	private String host;
+	public static String user;
+	public static String password;
+
+<<<<<<< HEAD
 	private Properties properties;
 
 	private MimeMessage message;
@@ -30,13 +37,20 @@ public class Mail extends Thread {
 	private Multipart multipart;
 	private int t;
 	private Authenticator authenticator;
+=======
+>>>>>>> d27a61514374775671ff174e6810d4d9ee2b0f5b
 	private boolean send = false;
 
 	String to, subject, messageBody;
 
+<<<<<<< HEAD
 	public Mail(String mail, String pass, int i) {
 		t=i;
 		fileName = "ProblemaDeOtimizaçãoDoTipoDouble.xml";
+=======
+	public Mail(String mail, String pass) {
+		mailProduct.setFileName("ProblemaDeOtimizaçãoDoTipoDouble.xml");
+>>>>>>> d27a61514374775671ff174e6810d4d9ee2b0f5b
 		host = "smtp.gmail.com";
 		if (mail.contains("@") && (mail.contains(".com") || mail.contains(".pt"))) {
 			user = mail;
@@ -45,17 +59,18 @@ public class Mail extends Thread {
 			user = "es2.2018.eic1.46@gmail.com";
 			password = "ESIIAdmin";
 		}
-		authenticator = new SMTPAuthenticator();
-		properties = System.getProperties();
-		properties.put("mail.smtp.host", host);
-		properties.put("mail.smtp.starttls.enable", "true");
+		mailProduct.setAuthenticator(new SMTPAuthenticator());
+		mailProduct.setProperties(System.getProperties());
+		mailProduct.getProperties().put("mail.smtp.host", host);
+		mailProduct.getProperties().put("mail.smtp.starttls.enable", "true");
 
-		properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+		mailProduct.getProperties().put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
-		properties.put("mail.smtp.port", "587");
-		properties.put("mail.smtp.auth", "true");
+		mailProduct.getProperties().put("mail.smtp.port", "587");
+		mailProduct.getProperties().put("mail.smtp.auth", "true");
 	}
 
+<<<<<<< HEAD
 	private void sendMail(String from, String to, String subject, String messageBody) {
 		try {
 			Session session = Session.getDefaultInstance(properties, authenticator);
@@ -113,11 +128,13 @@ public class Mail extends Thread {
 		}
 	}
 	
+=======
+>>>>>>> d27a61514374775671ff174e6810d4d9ee2b0f5b
 	void performTask() {
-		sendMail(user, to, subject, messageBody);
+		mailProduct.sendMail(user, to, subject, messageBody);
 		user = "es2.2018.eic1.46@gmail.com";
 		password = "ESIIAdmin";
-		sendMail(to, user, subject, messageBody);
+		mailProduct.sendMail(to, user, subject, messageBody);
 	}
 
 	void performTask2() {
@@ -170,4 +187,13 @@ public class Mail extends Thread {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	public Object clone() throws java.lang.CloneNotSupportedException {
+		Mail clone = (Mail) super.clone();
+		clone.mailProduct = (MailProduct) this.mailProduct.clone();
+		return clone;
+	}
+	
+>>>>>>> d27a61514374775671ff174e6810d4d9ee2b0f5b
 }
