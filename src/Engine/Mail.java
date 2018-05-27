@@ -5,13 +5,17 @@ import java.util.Properties;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
-import javax.mail.*;
+import javax.mail.Authenticator;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-
-
 
 
 public class Mail extends Thread{
@@ -27,11 +31,12 @@ public class Mail extends Thread{
 	private Multipart multipart;
 
 	private Authenticator authenticator;
+	private boolean send = false;
 
-	String  from, to, subject, messageBody;
+	String  to, subject, messageBody;
 
 	public Mail(String mail, String pass) {
-		fileName = "quiz";
+		fileName = "ProblemaDeOtimizaçãoDoTipoDouble.xml";
 		host = "smtp.gmail.com";
 		if(mail.contains("@") && (mail.contains(".com") || mail.contains(".pt"))){
 			user = mail;
@@ -87,8 +92,7 @@ public class Mail extends Thread{
 		sendMail(to, user, subject, messageBody);
 	}
 
-	public void setValues(/*String from, */String to, String subject, String messageBody) {
-		//this.from = from;
+	public void setValues(String from, String to, String subject, String messageBody) {
 		this.to=to;
 		this.subject=subject;
 		this.messageBody=messageBody;
@@ -102,10 +106,10 @@ public class Mail extends Thread{
 
 	static class SMTPAuthenticator extends Authenticator {
 
-		private static final String SMTP_AUTH_USER = user/*"es2.2018.eic1.46@gmail.com"*/;
-		private static final String SMTP_AUTH_PASSWORD = password/*"ESIIAdmin"*/;
+		private static final String SMTP_AUTH_USER = user;
+		private static final String SMTP_AUTH_PASSWORD = password;
 
-		public PasswordAuthentication getPasswordAuthentication(/*String u, String p*/) {
+		public PasswordAuthentication getPasswordAuthentication() {
 			String username = SMTP_AUTH_USER;
 			String password = SMTP_AUTH_PASSWORD;
 
